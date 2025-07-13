@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import {useState, useEffect,useRef, useMemo, type InputEventHandler} from 'react';
+import {useState, useEffect,useRef, useMemo, type InputEventHandler, createContext} from 'react';
 import ProductCard from "../../shared/ui/ProductCard";
 import SearchBar from "./SearchBar";
 import Button from "../../shared/ui/Button";
@@ -9,11 +9,13 @@ import type { ChangeEvent } from "react";
 const FAKE_API_URL = '/api/data'
 
 
+
+
 const Home = () => {
     // const {data, isLoading, error} = useFetch({url:FAKE_API_URL});
     const [filterCategory, setFilterCategory] = useState('');
     const [search, setSearch] = useState('');
-
+    
     const filteredProducts = useMemo(()=>{
         return products.filter(item => {
             const titleMatch = item?.title.toLowerCase().includes(search);
@@ -34,10 +36,10 @@ const Home = () => {
     };
     const searchRef = useRef<HTMLInputElement>(null);
 
-    const executeScroll = () => {
-        if(searchRef.current)
-            searchRef.current.scrollIntoView({ behavior: "smooth", inline: "center" });
-    }
+    // const executeScroll = () => {
+    //     if(searchRef.current)
+    //         searchRef.current.scrollIntoView({ behavior: "smooth", inline: "center" });
+    // }
 
     const handleAddToCart = (id: number) => {
         console.log("Добавлено в корзину:", id);
