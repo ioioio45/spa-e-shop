@@ -4,9 +4,9 @@ interface UseFetchProps{
     url: string;
 }
 
-export const useFetch = ({url}: UseFetchProps) => {
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+export const useFetch = <T,>({url}: UseFetchProps) => {
+    const [data, setData] = useState<T | null>();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState(false);
 
     useEffect(()=>{
@@ -37,6 +37,5 @@ export const useFetch = ({url}: UseFetchProps) => {
 
         fetchData();
     }, [url]);
-
     return {data, isLoading, error};
 }

@@ -8,6 +8,7 @@ const Button = ({text, onClickFunction}: buttonProps) =>{
     const handleClick = () => {
     if (onClickFunction) {
       onClickFunction(text);
+      console.log(text);
     }
   };
 
