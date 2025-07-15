@@ -1,11 +1,10 @@
 import { useState, useEffect, createContext, useContext} from "react";
 import  type {FC} from 'react'
-interface CartItem {
+export interface CartItem {
     id: number;
     title: string;
     price: number;
     quantity: number;
-
 }
 interface CartContextType {
     cart: CartItem[];

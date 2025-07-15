@@ -1,5 +1,4 @@
-import { Link } from "react-router";
-import {useState, useEffect,useRef, useMemo, type InputEventHandler, createContext} from 'react';
+import {useState, useEffect,useRef, useMemo, type InputEventHandler, createContext, useContext} from 'react';
 import ProductCard from "../../shared/ui/ProductCard";
 import SearchBar from "./SearchBar";
 import Button from "../../shared/ui/Button";
@@ -9,10 +8,14 @@ import type { ChangeEvent } from "react";
 import type {ProductCardProps} from '../../shared/ui/ProductCard.tsx'
 import type { JSX } from "react/jsx-runtime";
 import { BeatLoader } from "react-spinners";
+import { CartContext } from "../../context/CartContext.tsx";
+import type {CartItem} from '../../context/CartContext.tsx'
 const FAKE_API_URL = 'https://fakestoreapi.com/products'
 
 
 const Home = () => {
+    const context = useContext(CartContext);
+    
     const {data, isLoading, error} = useFetch<ProductCardProps[]>({url:FAKE_API_URL});
     
     const [filterCategory, setFilterCategory] = useState('');
@@ -43,13 +46,14 @@ const Home = () => {
         setFilterCategory('');
     };
 
-    // const executeScroll = () => {
-    //     if(searchRef.current)
-    //         searchRef.current.scrollIntoView({ behavior: "smooth", inline: "center" });
-    // }
-
     const handleAddToCart = (id: number) => {
-        console.log("Добавлено в корзину:", id);
+        if(!data || !context) return;
+        const item = data.find(product => product.id === id);
+        if(!item) return;
+        const cartItem: CartItem = {id: item.id, title:item.title,price:item.price,quantity: 1};
+        context?.addToCart(cartItem, 1);
+        if(context)
+        console.log(context.cart);
     };
 
     return (

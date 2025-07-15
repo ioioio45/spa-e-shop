@@ -7,6 +7,7 @@ const Home = lazy(()=> import( "../pages/Home/Home"))
 const Profile = lazy(()=> import( "../pages/Profile/Profile"))
 const Login = lazy(()=> import( "../pages/Login/Login"))
 const About = lazy(()=> import("../pages/About/About"))
+const Basket = lazy(()=> import("../pages/Basket/Basket"))
 
 export const routes = [
     {
@@ -16,7 +17,7 @@ export const routes = [
             {path: '', element: <Home/>},
             {path: 'profile', element: <Profile/>},
             {path: 'about', element: <About/>},
-            {path: 'basket', element: <About/>}
+            {path: 'basket', element: <Basket/>}
         ],
     },
     {
