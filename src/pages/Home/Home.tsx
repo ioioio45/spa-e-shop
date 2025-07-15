@@ -52,8 +52,6 @@ const Home = () => {
         if(!item) return;
         const cartItem: CartItem = {id: item.id, title:item.title,price:item.price,quantity: 1};
         context?.addToCart(cartItem, 1);
-        if(context)
-        console.log(context.cart);
     };
 
     return (

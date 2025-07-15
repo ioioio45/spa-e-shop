@@ -17,15 +17,23 @@ export const CartContext = createContext<CartContextType|undefined>(undefined);
 
 export const CartProvider:FC<{children: React.ReactNode}> = ({children})  =>{
     const [cart, setCart] = useState<CartItem[]>([]);
-    useEffect(()=>{
+    const [isInitialized, setIsInitialized] = useState(false);
+    useEffect(() => {
         const savedCart = localStorage.getItem('cart');
-        if(savedCart){
+        if (savedCart) {
+            try {
             setCart(JSON.parse(savedCart));
+            } catch (e) {
+            console.error('Ошибка парсинга cart из localStorage:', e);
+            }
+        }
+        setIsInitialized(true);
+    }, []);
+    useEffect(() => {
+        if (isInitialized) {
+            localStorage.setItem('cart', JSON.stringify(cart));
     }
-    },[]);
-    useEffect(()=>{
-        localStorage.setItem('cart', JSON.stringify(cart))
-    },[cart]);
+    }, [cart, isInitialized]);
 
     const addToCart = (item: CartItem, quantity: number = 1) => {
         setCart(prev => {

@@ -1,5 +1,4 @@
 const ProfilePage = () => {
-  // Заглушка, можешь позже заменить на useContext(UserContext)
   const user = {
     name: 'Иван Петров',
     email: 'ivan@example.com',
@@ -9,7 +8,7 @@ const ProfilePage = () => {
 
   return (
     <main className="max-w-screen-md mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">Профиль</h1>
+      <h1 className="text-3xl font-bold text-white mb-8">Профиль</h1>
 
       <div className="bg-white rounded-lg shadow-md p-6 flex flex-col sm:flex-row items-center sm:items-start gap-6">
         <img
