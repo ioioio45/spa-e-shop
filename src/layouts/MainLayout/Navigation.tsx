@@ -5,7 +5,6 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // Закрыть меню при клике вне
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -18,13 +17,13 @@ const Navigation = () => {
 
   return (
     <nav className="relative flex gap-8 items-center text-white">
-      <Link to="/" className="hover:text-blue-400 transition">Домой</Link>
-      <Link to="/about" className="hover:text-blue-400 transition">О нас</Link>
+      <Link to="/" className="hover:text-blue-400 text-indigo-500 transition">Домой</Link>
+      <Link to="/about" className="hover:text-blue-400 text-indigo-500 transition">О нас</Link>
 
       <div className="relative" ref={menuRef}>
         <button
           onClick={() => setOpen(!open)}
-          className="hover:text-blue-400 transition"
+          className="hover:text-indigo-400 text-indigo-500 transition cursor-pointer"
         >
           Контакты
         </button>

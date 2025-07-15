@@ -52,7 +52,7 @@ const MainLayout = () =>{
 
 const Header = () =>{
     return (
-        <header className={`w-full shadow-md px-4 py-2 flex items-center justify-between bg-gray-900 z-1000 ${styles.header}`}>
+        <header className={`w-full shadow-md px-4 py-2 flex items-center justify-between bg-gray-900 z-1000 text-indigo-500 font-semibold ${styles.header}`}>
             <div className="flex items-center gap-4">
                 <BurgerMenu />
                 <Logo />
