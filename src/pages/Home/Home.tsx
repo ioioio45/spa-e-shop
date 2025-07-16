@@ -1,6 +1,5 @@
-import {useState, useEffect,useRef, useMemo, type InputEventHandler, createContext, useContext} from 'react';
+import {useState, useMemo, useContext} from 'react';
 import ProductCard from "../../shared/ui/ProductCard";
-import SearchBar from "./SearchBar";
 import Button from "../../shared/ui/Button";
 import { useFetch } from "../../hooks/useFetch";
 //import {products,categories} from '../../fake-api/mock-api.ts'

@@ -1,11 +1,12 @@
-import { useState } from 'react'
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import './App.css'
 import {routes} from '../routes/routes'
 import {CartProvider} from '../context/CartContext'
+import {UserProvider} from '../context/UserContext'
 
 function App() {
   return (
+    <UserProvider>
     <CartProvider>
       <BrowserRouter>
         <Routes>
@@ -19,7 +20,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </CartProvider>
-    
+    </UserProvider>
   )
 }
 export default App

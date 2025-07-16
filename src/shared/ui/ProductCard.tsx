@@ -1,6 +1,5 @@
 import type { FC } from "react";
 import Button from './Button'
-import tshirt from '../../assets/t-shirt.png'
 export type ProductCardProps = {
   id: number;
   title: string;
