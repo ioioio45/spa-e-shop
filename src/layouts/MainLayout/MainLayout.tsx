@@ -1,7 +1,6 @@
 import { Outlet } from "react-router";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
-import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
 import BurgerMenu from "./BurgerMenu";
 import styles from "./MainLayout.module.css"

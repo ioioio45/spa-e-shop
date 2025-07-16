@@ -1,6 +1,5 @@
 import { useState,useRef,useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
-import styles from './MainLayout.module.css';
 
 const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
