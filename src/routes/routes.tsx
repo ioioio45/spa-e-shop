@@ -8,7 +8,7 @@ const Profile = lazy(()=> import( "../pages/Profile/Profile"))
 const Login = lazy(()=> import( "../pages/Login/Login"))
 const About = lazy(()=> import("../pages/About/About"))
 const Basket = lazy(()=> import("../pages/Basket/Basket"))
-
+const Register = lazy(()=>import ("../pages/Register/Register"))
 export const routes = [
     {
         path: '/',
@@ -17,14 +17,15 @@ export const routes = [
             {path: '', element: <Home/>},
             {path: 'profile', element: <Profile/>},
             {path: 'about', element: <About/>},
-            {path: 'basket', element: <Basket/>}
+            {path: 'basket', element: <Basket/>},
         ],
     },
     {
         path: '/auth',
         element: <AuthLayout/>,
         children: [
-            {path: 'login', element: <Login />}
+            {path: 'login', element: <Login />},
+            {path: 'register', element: <Register />}
         ]
     },
 ];

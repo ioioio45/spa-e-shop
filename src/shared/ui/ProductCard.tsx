@@ -31,8 +31,11 @@ const ProductCard: FC<ProductCardProps> = ({ id, title, price, description, cate
                 </div>
                 
             </div>
-            <Button text='В корзину' onClickFunction={() => {onAddToCart?.(id)}}>
+            <div className="p-4">
+            <Button text='В корзину' onClickFunction={() => {onAddToCart?.(id)}} className="w-full">
             </Button>
+            </div>
+            
         </div>
     );
 }

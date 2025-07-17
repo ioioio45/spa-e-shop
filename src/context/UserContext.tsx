@@ -16,7 +16,7 @@ type User = {
     logout: ()=>void;
 }
 
-const UserContext = createContext<User | null>(null)
+export const UserContext = createContext<User | null>(null)
 
 
 
